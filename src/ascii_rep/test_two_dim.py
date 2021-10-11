@@ -7,6 +7,9 @@ from two_dim import *
 
 class TestAsciiMethods(unittest.TestCase):
 
+    def test_foo(self):
+        print("hello from github web")
+        
     def test_docs_gen(self):
         a = np.array([[1,2,3],[4,5,6],[7,8,9]])
         print(decorate(a))
