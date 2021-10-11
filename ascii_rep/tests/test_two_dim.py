@@ -1,9 +1,5 @@
 import unittest
-
-import numpy as np
-
-from two_dim import *
-
+from ascii_rep.ascii_rep.two_dim import *
 
 class TestAsciiMethods(unittest.TestCase):
 
