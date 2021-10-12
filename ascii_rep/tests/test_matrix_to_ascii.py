@@ -1,10 +1,11 @@
 import unittest
-from ascii_rep.ascii_rep.two_dim import *
+from ascii_rep.matrix_to_ascii.matrix_to_ascii import *
+
 
 class TestAsciiMethods(unittest.TestCase):
 
     def test_docs_gen(self):
-        a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+        a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
         print(decorate(a))
 
     def test_decorate_exception(self):
@@ -69,18 +70,16 @@ class TestAsciiMethods(unittest.TestCase):
         max_len_in_col(str_arr)
 
     def test_gen_format_string(self):
-        a = np.array([[1,2,3],[1231,-234523523000000011,2342],[0,0,0]])
+        a = np.array([[1, 2, 3], [1231, -234523523000000011, 2342], [0, 0, 0]])
         a_str = copy_as_str(a)
         fmt_str = gen_format_string(a)
         print(fmt_str.format(*a.flatten()))
 
     def test_decorate_aug(self):
-        a = np.array([[10,1],[2,3],[4,5]])
-        b = np.array([[1],[2],[3]])
-        bf = np.array([[1],[2],[3],[4]])
+        a = np.array([[10, 1], [2, 3], [4, 5]])
+        b = np.array([[1], [2], [3]])
+        bf = np.array([[1], [2], [3], [4]])
         self.assertRaises(ValueError, decorate_aug, a, bf)
         print(decorate_aug(a, b))
-        b = np.array([[1,1],[2,2],[3,3]])
+        b = np.array([[1, 1], [2, 2], [3, 3]])
         print(decorate_aug(a, b))
-
-

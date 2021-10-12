@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "ascii_rep"
+name = "matrix_to_ascii"
 version = "0.0.1"
-description = "Generates ascii representations for numpy's 2D arrays"
-authors = ["devoli170 <oliluib@gmail.com>"]
+description = "Generates an ascii representation for numpy 2D arrays"
+authors = ["devoli170 <dev.170.info@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]

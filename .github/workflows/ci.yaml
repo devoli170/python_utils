@@ -14,7 +14,7 @@ jobs:
       matrix:
         python-version: [3.9]
         poetry-version: [1.1.11]
-        packages: [ascii_rep, foo_test]
+        packages: [ascii_rep]
         os: [ubuntu-18.04, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
