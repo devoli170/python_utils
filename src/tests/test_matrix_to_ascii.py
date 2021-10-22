@@ -1,5 +1,5 @@
 import unittest
-from ascii_rep.matrix_to_ascii.matrix_to_ascii import *
+from src.matrix_to_ascii.matrix_to_ascii import *
 
 
 class TestAsciiMethods(unittest.TestCase):

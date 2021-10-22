@@ -1,2 +1,3 @@
-# ascii_matrix
- Generates extended ascii representations for numpy's 2D arrays
+# Info
+
+non-cohesive collection of python code. It's packaged and published together for my personal use.  
