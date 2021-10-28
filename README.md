@@ -1,6 +1,6 @@
 # Info
 
-non-cohesive collection of python code. It's packaged and published together for my personal use.  
+non-cohesive collection of my python code. The package is not published on pypi. Maybe at a later point.
 
 ## La_edu
 
