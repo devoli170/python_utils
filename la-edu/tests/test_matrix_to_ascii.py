@@ -1,8 +1,10 @@
 import unittest
-from src.matrix_to_ascii.matrix_to_ascii import *
-
+from la_edu.matrix_to_ascii import *
 
 class TestAsciiMethods(unittest.TestCase):
+
+    def test_(self):
+        print(np.version.version)
 
     def test_docs_gen(self):
         a = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
