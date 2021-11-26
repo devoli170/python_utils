@@ -16,6 +16,6 @@ jobs:
       - id: change-detection
         uses: ./.github/actions/pipeline-change-detection
         with:
-          piplines-to-check: ${{ matrix.pipelines }}
+          pipline-to-check: ${{ matrix.pipelines }}
       - run: echo ${{ steps.change-d.outputs.changed }}
         shell: bash
