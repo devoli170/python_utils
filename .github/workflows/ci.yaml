@@ -25,15 +25,15 @@ jobs:
       - run: echo ${{ steps.change-detection.outputs.changed }}
         shell: bash
       - name: Setup Python
-        if: ${{ steps.change-detection.outputs.changed == true }}
+        if: ${{ steps.change-detection.outputs.changed == "true" }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
       - name: Setup Tox
-        if: ${{ steps.change-detection.outputs.changed == true }}
+        if: ${{ steps.change-detection.outputs.changed == "true" }}
         run: |
           python -m pip install --upgrade pip
           pip install tox tox-gh-actions
       - name: Test with tox
-        if: ${{ steps.change-detection.outputs.changed == true }}
+        if: ${{ steps.change-detection.outputs.changed == "true" }}
         run: tox -c ${{ matrix.pipelines }}
