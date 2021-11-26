@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "3D_windowing_edu"
+name = "three_d_windowing_edu"
 version = "0.0.1"
 description = ""
 authors = ["Oliver Luib <oliluib@gmail.com>"]
