@@ -5,22 +5,6 @@ on:
       - ci-change-detection
 
 jobs:
-  change_detection:
-    strategy:
-      matrix:
-        pipelines: [la_edu, 3D_windowing_edu]
-    runs-on: ubuntu-latest
-    name: change-d
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: '2'
-      - id: change-detection
-        uses: ./.github/actions/pipeline-change-detection
-        with:
-          pipline-to-check: ${{ matrix.pipelines }}
-      - run: echo ${{ steps.change-detection.outputs.changed }}
-        shell: bash
   ci:
     strategy:
       fail-fast: false
@@ -32,13 +16,24 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: '2'
+      - id: change-detection
+        uses: ./.github/actions/pipeline-change-detection
+        with:
+          pipline-to-check: ${{ matrix.pipelines }}
+      - run: echo ${{ steps.change-detection.outputs.changed }}
+        shell: bash
       - name: Setup Python
+        if: ${{ steps.change-detection.outputs.changed }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
       - name: Setup Tox
+        if: ${{ steps.change-detection.outputs.changed }}
         run: |
           python -m pip install --upgrade pip
           pip install tox tox-gh-actions
       - name: Test with tox
+        if: ${{ steps.change-detection.outputs.changed }}
         run: tox -c ${{ matrix.pipelines }}
