@@ -5,12 +5,12 @@ inputs:
     description: 'The pipelines to check for change'
     required: true
 outputs:
-  changed-dirs:
-    description: "List of changed dirs"
-    value: ${{ steps.group-top-level-directories.outputs.changed-dirs-id }}
+  changed:
+    description: "True if there was a change in this dir"
+    value: ${{ steps.group-top-level-directories.outputs.changed }}
 runs:
   using: "composite"
   steps:
-    - id: group-top-level-directories
-      run: echo "::set-output name=changed-dirs-id::${{ github.action_path }}/bashfu.sh ${{ inputs.piplines-to-check }}"
+    - id: changed-dir
+      run: echo "::set-output name=changed::${{ github.action_path }}/bashfu.sh ${{ inputs.piplines-to-check }}"
       shell: bash
