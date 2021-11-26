@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ env.GITHUB_REF##*/ }}
+          ref: ${{ env.GITHUB_REF }}
       - id: change-detection
         uses: ./.github/actions/pipeline-change-detection
         with:
