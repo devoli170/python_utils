@@ -1,0 +1,19 @@
+name: "Pipeline Change Detection"
+description: "Check if codebase in tracked pipelines changed"
+inputs:
+  pipline-to-check:
+    description: 'The pipeline to check for change'
+    required: true
+outputs:
+  changed:
+    description: "True if there was a change in this dir"
+    value: ${{ steps.changed-dir.outputs.changed }}
+runs:
+  using: "composite"
+  steps:
+    - id: running-script
+      run: ${{ github.action_path }}/bashfu.sh ${{ inputs.pipline-to-check }}
+      shell: bash
+    - id: changed-dir
+      run: echo "::set-output name=changed::`${{ github.action_path }}/bashfu.sh ${{ inputs.pipline-to-check }}`"
+      shell: bash
