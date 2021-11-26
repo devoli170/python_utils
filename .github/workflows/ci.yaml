@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: change-detection
-        uses: actions/pipeline-change-detection@v1
+        uses: ./.github/actions/pipeline-change-detection@v1
         with:
           piplines-to-check: ${{ matrix.pipelines }}
       - run: echo ${{ steps.change-d.outputs.changed-dirs }}
