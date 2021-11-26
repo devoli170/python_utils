@@ -11,9 +11,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: '2'
     - id: changed-dir
       run: echo "::set-output name=changed::`${{ github.action_path }}/bashfu.sh ${{ inputs.pipline-to-check }}`"
       shell: bash
