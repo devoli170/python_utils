@@ -5,3 +5,17 @@ on:
       - ci-change-detection
 
 jobs:
+  change_detection:
+    strategy:
+      matrix:
+        pipelines: [la_edu, 3D_windowing_edu]
+    runs-on: ubuntu-latest
+    name: change-d
+    steps:
+      - uses: actions/checkout@v2
+      - id: change-detection
+        uses: actions/pipeline-change-detection@v1
+        with:
+          piplines-to-check: ${{ matrix.pipelines }}
+        - run: echo ${{ steps.change-d.outputs.changed-dirs }}
+          shell: bash
