@@ -19,5 +19,5 @@ jobs:
         uses: ./.github/actions/pipeline-change-detection
         with:
           pipline-to-check: ${{ matrix.pipelines }}
-      - run: echo ${{ steps.change-d.outputs.changed }}
+      - run: echo ${{ steps.change-detection.outputs.changed }}
         shell: bash
