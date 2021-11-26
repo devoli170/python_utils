@@ -1,0 +1,16 @@
+name: "Pipeline Change Detection"
+description: "Check if codebase in tracked pipelines changed"
+inputs:
+  piplines-to-check:
+    description: 'The pipelines to check for change'
+    required: true
+outputs:
+  changed-dirs:
+    description: "List of changed dirs"
+    value: ${{ steps.group-top-level-directories.outputs.changed-dirs-id }}
+runs:
+  using: "composite"
+  steps:
+    - id: group-top-level-directories
+      run: echo "::set-output name=changed-dirs-id::${{ github.action_path }}/bashfu.sh ${{ inputs.piplines-to-check }}"
+      shell: bash
