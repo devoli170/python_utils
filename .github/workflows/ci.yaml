@@ -27,7 +27,7 @@ jobs:
       matrix:
         python-version: [ 3.9 ]
         poetry-version: [ 1.1.11 ]
-        pipelines: [ la_edu ]
+        pipelines: [ la_edu, 3D_windowing_edu ]
         os: [ ubuntu-18.04, macos-latest ]
     runs-on: ${{ matrix.os }}
     steps:
